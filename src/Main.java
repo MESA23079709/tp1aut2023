@@ -6,14 +6,27 @@ public class Main {
         typeCellule cherchetype=new typeCellule();
         Object [] tableau=new Object[5];
         File monFichier = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        File ficherVide = new File("C://aymen/tp1aut2023/tp1aut2023/src/fichierVide.txt");
         File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        Fichier monfile=new Fichier();
+        int longeur;
+
+        monfile.VerifierFichierVide(ficherVide);
+        longeur =monfile.verifierLonguerDeFichier(ficherVide);
+        System.out.println(longeur);
+
+
+
+
+
+        /*
         Scanner scannerMonF;
         Scanner scannerVraiFaux;
         char s;
         int nombreLigne=0;
         int nombreDeLignes = 0;
 
-        System.out.println("la longue de fichier : "+monFichier.exists());
+
         try (BufferedReader lecteur = new BufferedReader(new FileReader(monFichier))) {
 
             while (lecteur.readLine() != null) {
@@ -39,6 +52,7 @@ public class Main {
             System.out.println("nombre :"+nombreLigne);
 
              */
+        /*
             int lien1=0;
             int lien2=0;
             int tableInt=0;
@@ -98,6 +112,10 @@ public class Main {
         }catch(FileNotFoundException e){
             System.out.println(" makanch fichier");
         }
+
+         */
+
+
 
 
     }

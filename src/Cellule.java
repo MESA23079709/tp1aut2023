@@ -41,4 +41,12 @@ public class Cellule {
     public void setSuivant(boolean suivant){
         this.suivant=suivant;
     }
+
+    public void remplirTableauDojbet(Object [] tableauDobjet,char [] tableauDeLettre,int[] tableauDeChiffres){
+        for(int i=0;i<tableauDobjet.length;i++){
+            Cellule S0 = new Cellule(tableauDeLettre[i],tableauDeChiffres[i*2],tableauDeChiffres[(i*2)+1]);
+            tableauDobjet[i]=S0;
+        }
+
+    }
 }
