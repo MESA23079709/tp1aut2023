@@ -1,9 +1,109 @@
+import java.io.*;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         typeCellule cherchetype=new typeCellule();
         Object [] tableau=new Object[5];
+        File monFichier = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        Scanner scannerMonF;
+        Scanner scannerVraiFaux;
+        char s;
+        int nombreLigne=0;
+        int nombreDeLignes = 0;
+
+        System.out.println("la longue de fichier : "+monFichier.exists());
+        try (BufferedReader lecteur = new BufferedReader(new FileReader(monFichier))) {
+
+            while (lecteur.readLine() != null) {
+                nombreDeLignes++;
+               // System.out.println(lecteur.readLine());
+            }
+            System.out.println(nombreDeLignes);
 
 
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        System.out.println("hi im here");
+        try{
+            System.out.println("hi im here 44");
+             scannerMonF = new Scanner(monFichier);
+            scannerVraiFaux=new Scanner(vraiFaux);
+            /*
+            while(){
+            nombreLigne++;
+            }
+            System.out.println("nombre :"+nombreLigne);
+
+             */
+            int lien1=0;
+            int lien2=0;
+            int tableInt=0;
+            int tableLettre=0;
+            String ligne;
+            //////////////////////// mettre les lettre dans un tableau et les entiers dans un tableau ////////////////
+            char [] mont =new char[nombreDeLignes];
+            Integer [] intt =new Integer[nombreDeLignes*2];
+            for (int i =0; i<nombreDeLignes*3; i++){
+                ligne=scannerMonF.next();
+                 s = ligne.charAt(0);
+                 s=Character.toUpperCase(s);
+
+                if (Character.isDigit(s)) {
+                    System.out.println("Le caractère est un chiffre.");
+
+                    lien1= Character.getNumericValue(s);
+                    intt[tableInt]=lien1;
+                    System.out.println("i :"+i+" int []:"+intt[tableInt]);
+                    tableInt++;
+
+                } else if(s=='F'||s=='N'||s=='C'||s=='D'||s=='E'||s=='I'||s=='V'){
+                    System.out.println("Le caractère n'est pas un chiffre.");
+                    System.out.println("char DAKHEL IF :"+s + " : i :"+i);
+                    mont[tableLettre]=s;
+                    tableLettre++;
+                }
+                //Cellule S0 = new Cellule(,intt[i],lien2);
+
+              }
+            for(int i=0;i<intt.length;i++){
+                System.out.println("i :"+i+" intt []:"+intt[i]);
+            }
+
+            for(int i=0;i<mont.length;i++){
+                System.out.println("i :"+i+" char []:"+mont[i]);
+            }
+            ///// methode pour remplire le tableau D'objet ///////////////////////////////
+            for(int i=0;i<mont.length;i++){
+                Cellule S0 = new Cellule(mont[i],intt[i*2],intt[(i*2)+1]);
+                tableau[i]=S0;
+            }
+            Cellule S1 ;
+            for(int i=0;i<mont.length;i++){
+                S1=(Cellule) tableau[i];
+
+                System.out.println("S1 type :"+S1.getTypeCellule());
+                System.out.println("S1 lien1 :"+S1.getLienCellule1());
+                System.out.println("S1 lien2 :"+S1.getLienCellule2());
+                ;
+                ;
+            }
+
+
+
+
+        }catch(FileNotFoundException e){
+            System.out.println(" makanch fichier");
+        }
+
+
+    }
+
+
+        /*
         Cellule S0 = new Cellule('Z',0,1);
         Cellule S1 = new Cellule('F',0,1);
         Cellule S2 = new Cellule('E',0,1);
@@ -16,7 +116,6 @@ public class Main {
         for(int i=1 ; i<5 ;i++){
             Cellule A =new Cellule('Z',0,0);
             tableau[1]=A;
-
         }
 
         System.out.println("tableau :"+S.getCourant());
@@ -65,8 +164,10 @@ public class Main {
         System.out.println("S3 courant :"+ S3.courant +"\n"+ "S3 suivant :"+ S3.suivant+"\n");
         System.out.println("S4 courant :"+ S4.courant +"\n"+ "S4 suivant :"+ S4.suivant);
 
+         */
 
-    }
+
+
 
 
 }
