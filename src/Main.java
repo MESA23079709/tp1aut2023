@@ -7,13 +7,27 @@ public class Main {
         Object [] tableau=new Object[5];
         File monFichier = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
         File ficherVide = new File("C://aymen/tp1aut2023/tp1aut2023/src/fichierVide.txt");
+        File fausseValeur = new File("C://aymen/tp1aut2023/tp1aut2023/src/fausseValeur.txt");
         File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
         Fichier monfile=new Fichier();
         int longeur;
+        int nombreDeLigne;
+        System.out.println("virifier si le fichier est vide");
+        if(!monfile.VerifierFichierVide(ficherVide)){
+           System.out.println("verifierFichierSiCorrect");
+            nombreDeLigne=monfile.verifierLonguerDeFichier(fausseValeur);
+            System.out.println("nombredeligne: "+nombreDeLigne);
+            char lettre;
+            String ligne;
 
-        monfile.VerifierFichierVide(ficherVide);
-        longeur =monfile.verifierLonguerDeFichier(ficherVide);
-        System.out.println(longeur);
+            System.out.println(" f ou v :"+monfile.VerifierFichierSiCorrect(fausseValeur,nombreDeLigne));
+
+        }
+        System.out.println("longeurFichier");
+
+        System.out.println(monfile.verifierLonguerDeFichier(ficherVide));
+
+
 
 
 

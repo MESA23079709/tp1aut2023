@@ -1,15 +1,14 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Fichier {
+    Scanner scannerLeFichier;
+
 
     Boolean vide;
     public Boolean VerifierFichierVide(File nomDeFichier){
 
-        if(nomDeFichier.exists()){
+        if(nomDeFichier.length()==0){
             vide=true;
             System.out.println("le fichier est Vide !");
         }else{
@@ -63,25 +62,43 @@ public class Fichier {
         }
     }
     Boolean laBonneValeur=false;
-    public Boolean VerifierFichierSiCorrect(File nomDeFichier){
+    public Boolean VerifierFichierSiCorrect(File nomDeFichier,int nombreDeLignes){
+        try{
+            scannerLeFichier = new Scanner(nomDeFichier);
+            for (int i =0; i<nombreDeLignes*3; i++) {
+                ligne = scannerLeFichier.next();
+                lettre = ligne.charAt(0);
+                lettre = Character.toUpperCase(lettre);
+                if (ligne.matches("[a-zA-Z0-9]+")) {
+                    if (lettre == 'F' || lettre == 'N' || lettre == 'C' || lettre == 'D' || lettre == 'E' || lettre == 'I' || lettre == 'V') {
+                        laBonneValeur = true;
+                        System.out.println("L "+lettre);
+                    } else if (Character.isDigit(lettre)) {
+                        laBonneValeur = true;
+                        System.out.println("C "+lettre);
+                    } else {
+                        laBonneValeur = false;
+                        System.out.println("mich kima nhab "+lettre);
 
-        for (int i =0; i<nombreDeLignes*3; i++){
-            ligne=scannerLeFicher.next();
-            lettre = ligne.charAt(0);
-            lettre=Character.toUpperCase(lettre);
-            if(lettre=='F'||lettre=='N'||lettre=='C'||lettre=='D'||lettre=='E'||lettre=='I'||lettre=='V'){
-                laBonneValeur=true;
-            }else if(Character.isDigit(lettre)){
-                laBonneValeur=true;
-            }else{
-                laBonneValeur=false;
+                    }
+                } else {
+                    laBonneValeur = false;
+                    System.out.println("la valeur khatya khlas");
+                }
             }
+        }catch(FileNotFoundException e){
+            System.out.println("le fichier n'existe pas");
         }
-        if(laBonneValeur){
-          System.out.println("le fichier n'est pas correct !!, Verifier le Fichier. \n " +
-                  " Exemple Format du Fichier : F 0 0 \n" +
-                  " les lettres acceptees : C D E N I F V ");
+        if(!laBonneValeur){
+            System.out.println("le fichier n'est pas correct !!, Verifier le Fichier. \n " +
+                    " Exemple Format du Fichier : F 0 0 \n" +
+                    " les lettres acceptees : C D E N I F V ");
         }
-      return laBonneValeur;
-    }
-}
+        return laBonneValeur;
+        }
+
+
+        }
+
+
+
