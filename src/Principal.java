@@ -1,33 +1,35 @@
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Principal {
-
     private enum Test {
-        TestExemple( "rExemple.txt", "eExemple.txt", Arrays.asList( true, true, false, true, false, true, true, true ) ),
-        TestVideVrai( "rVide.txt", "eUnVrai.txt" , Arrays.asList( true )),
-        TestVideFaux( "rVide.txt", "eUnFaux.txt" , Arrays.asList( false )),
-        TestVidePlusieurs( "rVide.txt", "ePlusieurs.txt" , Arrays.asList( false, true, false, false, true, true, false )),
+        TestExemple( "src/rExemple.txt", "src/eExemple.txt", Arrays.asList( true, true, false, true, false, true, true, true ) ),
+        TestVideVrai( "src/rVide.txt", "src/eUnVrai.txt" , Arrays.asList( true )),
+        TestVideFaux( "src/rVide.txt", "src/eUnFaux.txt" , Arrays.asList( false )),
+        TestVidePlusieurs( "src/rVide.txt", "src/ePlusieurs.txt" , Arrays.asList( false, true, false, false, true, true, false )),
 
-        TestConjonctionVrai( "rConjonctionVrai.txt", "eVF.txt", Arrays.asList( false, true, false )),
-        TestConjonctionFaux( "rConjonctionFaux.txt", "eVF.txt", Arrays.asList( false, false, false )),
+        TestConjonctionVrai( "src/rConjonctionVrai.txt", "src/eVF.txt", Arrays.asList( false, true, false )),
+        TestConjonctionFaux( "src/rConjonctionFaux.txt", "src/eVF.txt", Arrays.asList( false, false, false )),
 
-        TestDisjonctionVrai( "rDisjonctionVrai.txt", "eVF.txt", Arrays.asList( false, true, true )),
-        TestDisjonctionFaux( "rDisjonctionFaux.txt", "eVF.txt", Arrays.asList( false, true, false )),
+        TestDisjonctionVrai( "src/rDisjonctionVrai.txt", "src/eVF.txt", Arrays.asList( false, true, true )),
+        TestDisjonctionFaux( "src/rDisjonctionFaux.txt", "src/eVF.txt", Arrays.asList( false, true, false )),
 
-        TestEquivalenceVrai( "rEquivalenceVrai.txt", "eVF.txt", Arrays.asList( true, true, false )),
-        TestEquivalenceFaux( "rEquivalenceFaux.txt", "eVF.txt", Arrays.asList( true, false, true )),
+        TestEquivalenceVrai( "src/rEquivalenceVrai.txt", "src/eVF.txt", Arrays.asList( true, true, false )),
+        TestEquivalenceFaux( "src/rEquivalenceFaux.txt", "src/eVF.txt", Arrays.asList( true, false, true )),
 
-        TestNegationVrai( "rNegationVrai.txt", "eVF.txt", Arrays.asList( true, false, true )),
-        TestNegationFaux( "rNegationFaux.txt", "eVF.txt", Arrays.asList( true, false, true )),
+        TestNegationVrai( "src/rNegationVrai.txt", "src/eVF.txt", Arrays.asList( true, false, true )),
+        TestNegationFaux( "src/rNegationFaux.txt", "src/eVF.txt", Arrays.asList( true, false, true )),
 
-        TestIdentiteVrai( "rIdentiteVrai.txt", "eVF.txt", Arrays.asList( false, true, false )),
-        TestIdentiteFaux( "rIdentiteFaux.txt", "eVF.txt", Arrays.asList( false, true, false )),
+        TestIdentiteVrai( "src/rIdentiteVrai.txt", "src/eVF.txt", Arrays.asList( false, true, false )),
+        TestIdentiteFaux( "src/rIdentiteFaux.txt", "src/eVF.txt", Arrays.asList( false, true, false )),
 
-        TestTautologieVrai( "rTautologieVrai.txt", "eVF.txt", Arrays.asList( true, true, true )),
-        TestTautologieFaux( "rTautologieFaux.txt", "eVF.txt", Arrays.asList( true, true, true )),
+        TestTautologieVrai( "src/rTautologieVrai.txt", "src/eVF.txt", Arrays.asList( true, true, true )),
+        TestTautologieFaux( "src/rTautologieFaux.txt", "src/eVF.txt", Arrays.asList( true, true, true )),
 
-        TestContradictionVrai( "rContradictionVrai.txt", "eVF.txt", Arrays.asList( false, false, false )),
-        TestContradictionFaux( "rContradictionFaux.txt", "eVF.txt", Arrays.asList( false, false, false )),
+        TestContradictionVrai( "src/rContradictionVrai.txt", "src/eVF.txt", Arrays.asList( false, false, false )),
+        TestContradictionFaux( "src/rContradictionFaux.txt", "src/eVF.txt", Arrays.asList( false, false, false )),
 
         ;
         private String nomFichierDescription;
@@ -70,6 +72,4 @@ public class Principal {
 
         System.out.println( "\nTotal : " + nbReussi + " / " + nbTests );
     }
-
-
 }

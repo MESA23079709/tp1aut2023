@@ -35,9 +35,10 @@ public class typeCellule {
         return resultat;
     }
     public boolean Tautologie(boolean CourantE1,boolean CourantE2 ){
-        return !resultat;
+        resultat=true;
+        return resultat;
     }
-    public boolean Conjocntion(boolean CourantE1,boolean CourantE2 ){
+    public boolean Conjonction(boolean CourantE1,boolean CourantE2 ){
         if(CourantE1 && CourantE2){
             resultat= true;
         }else{
@@ -46,7 +47,8 @@ public class typeCellule {
         return resultat;
     }
     public boolean Contradiction(boolean CourantE1,boolean CourantE2 ){
-        return resultat;
+
+        return false;
     }
 
 }

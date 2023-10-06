@@ -1,31 +1,54 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        typeCellule cherchetype=new typeCellule();
-        Object [] tableau=new Object[5];
-        File monFichier = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
-        File ficherVide = new File("C://aymen/tp1aut2023/tp1aut2023/src/fichierVide.txt");
-        File fausseValeur = new File("C://aymen/tp1aut2023/tp1aut2023/src/fausseValeur.txt");
-        File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
-        Fichier monfile=new Fichier();
-        int longeur;
-        int nombreDeLigne;
-        System.out.println("virifier si le fichier est vide");
-        if(!monfile.VerifierFichierVide(ficherVide)){
-           System.out.println("verifierFichierSiCorrect");
-            nombreDeLigne=monfile.verifierLonguerDeFichier(fausseValeur);
-            System.out.println("nombredeligne: "+nombreDeLigne);
-            char lettre;
-            String ligne;
 
-            System.out.println(" f ou v :"+monfile.VerifierFichierSiCorrect(fausseValeur,nombreDeLigne));
-
+       // File vraiFauxF =new File()
+       // TableauCellule cellule = new TableauCellule('z', 0, 0);
+        ArrayList<Boolean> nouvelleL =new ArrayList<>();
+        ReseauDeCellules reseau =new ReseauDeCellules();
+      //  File monFichier = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        // File ficherVide = new File("C://aymen/tp1aut2023/tp1aut2023/src/fichierVide.txt");
+        // File fausseValeur = new File("C://aymen/tp1aut2023/tp1aut2023/src/fausseValeur.txt");
+        //  File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/vraiFaux.txt");
+       nouvelleL= reseau.executer("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt","C://aymen/tp1aut2023/tp1aut2023/src/vraiFaux.txt");
+     // nouvelleL= cellule.evolutionC(tableau);
+        for(int i=0;i<nouvelleL.size();i++){
+            System.out.println(" case :"+ nouvelleL.get(i));
         }
-        System.out.println("longeurFichier");
 
-        System.out.println(monfile.verifierLonguerDeFichier(ficherVide));
+
+
+
+
+    }
+
+
+
+
+
+
+            /*
+            switch(S0.getTypeCellule()){
+                case 'E':
+                    boolean courantLien1;
+                    boolean courantLien2;
+                    Cellule S1;
+                    Cellule S2;
+                    S1=(Cellule) tableau[S0.getLienCellule1()];
+                    S2=(Cellule) tableau[S0.getLienCellule2()];
+                    courantLien1=S1.getCourant();
+                    courantLien2=S2.getCourant();
+                    S0.setSuivant(cherchetype.Equivalence(courantLien1,courantLien2));
+            }
+
+             */
+
+
+
+        // cellule.CelluleRemplireFichier(monFichier,nombreDeLigne);
 
 
 
@@ -132,8 +155,6 @@ public class Main {
 
 
 
-    }
-
 
         /*
         Cellule S0 = new Cellule('Z',0,1);
@@ -197,9 +218,6 @@ public class Main {
         System.out.println("S4 courant :"+ S4.courant +"\n"+ "S4 suivant :"+ S4.suivant);
 
          */
-
-
-
 
 
 }

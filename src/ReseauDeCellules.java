@@ -1,54 +1,62 @@
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 // AYMEN MESSAAD
 
 public class ReseauDeCellules {
-    /*
+
+
+
     public static ArrayList< Boolean >
     executer( String nomFichierReseau, String nomFichierValeur ){
-        ArrayList<String> cellule = new ArrayList<String>();
-
-
-
-
-
-
-
-
-
-
-        cellule.add("lawla");
-        cellule.add("2eme");
-        cellule.add("thaltha");
-        for(int i=0; i<cellule.size(); i++){
-            System.out.println(cellule.get(i));
+        ArrayList<Boolean> celluleList = new ArrayList<>();
+        File monFichier = new File(nomFichierReseau);
+        if(monFichier.length()==0 ){
+        System.out.println("fichier est vide");
         }
-        cellule.set(0,"4eme");
-        for(int i=0; i<cellule.size(); i++){
-            System.out.println(cellule.get(i));
+        if(monFichier.length()==0 ){
+            System.out.println("fichier est vide");
         }
+        System.out.println(" le fichier :" + nomFichierReseau +" et "+nomFichierValeur );
+        // File ficherVide = new File("C://aymen/tp1aut2023/tp1aut2023/src/fichierVide.txt");
+        // File fausseValeur = new File("C://aymen/tp1aut2023/tp1aut2023/src/fausseValeur.txt");
+        //  File vraiFaux = new File("C://aymen/tp1aut2023/tp1aut2023/src/monFichier.txt");
+        Fichier monfile = new Fichier();
+        TableauCellule cellule = new TableauCellule('z', 0, 0);
 
-       File fichier = new File( nomFichierReseau );
 
-       try{
-           Scanner scanner = new Scanner(fichier);
-           while(scanner.hasNext()){
-               String s = scanner.next();
-               System.out.println("lawla : "+ s);
-           }
-           String s = scanner.next();
-           int x = scanner.nextInt();
 
-       }catch(FileNotFoundException e){
-           System.out.println("fichier n'existe pas");
-       }
+        // int longeur;
+        int nombreDeLigne = 0;
+       // System.out.println("virifier si le fichier est vide");
+        if (!monfile.VerifierFichierVide(monFichier)) {
+           // System.out.println("verifierFichierSiCorrect");
+            nombreDeLigne = monfile.verifierLonguerDeFichier(monFichier);
+           // System.out.println("nombredeligne: " + nombreDeLigne);
+          //  System.out.println(" f ou v :" + monfile.VerifierFichierSiCorrect(monFichier, nombreDeLigne));
+        }
+       // System.out.println("nmbr " + nombreDeLigne);
+        int[] tableauChiffre = new int[nombreDeLigne * 2];
+        char[] tableaulettre = new char[nombreDeLigne];
+        monfile.SauvgarderChiffresDeFichier(monFichier, tableauChiffre);
+        monfile.SauvgarderLettresDeFichier(monFichier, tableaulettre, nombreDeLigne);
+        Object[] tableauDeCellules = new Object[nombreDeLigne + 1];
+        cellule.remplirTableauDojbet(tableauDeCellules, tableaulettre, tableauChiffre);
+       // System.out.println("taille ;" + tableauDeCellules.length);
+        celluleList= cellule.evolutionCellule(tableauDeCellules,nomFichierValeur);
 
+        return celluleList;
     }
 
-     */
+
+
+
+
+
+
 
 }
 
